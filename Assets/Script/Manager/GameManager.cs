@@ -12,46 +12,23 @@ public class GameManager : MonoBehaviour
     {
         get { return gameManager; }
     }
-
-    private int currentScore = 0;
-    PlaneUIManager planeUIManager;
-
-    public PlaneUIManager PlaneUIManager
-    {
-        get { return planeUIManager; }
-    }
     private void Awake()
     {
         gameManager = this;
-        planeUIManager = FindObjectOfType<PlaneUIManager>();
     }
 
     private void Start()
     {
-        planeUIManager.UpdateScore(0);
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    public void GameOver()
-    {
-        Debug.Log("Game Over");
-        planeUIManager.SetRestart();
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode) 
+    { 
+        if(scene.name == "MiniGameScene")
+        {
+            Time.timeScale = 0f;
+        }
     }
 
-    public void RestartGame()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
-
-    public void AddScore(int score)
-    {
-        currentScore += score;
-        planeUIManager.UpdateScore(currentScore);
-        Debug.Log("Score: " + currentScore);
-    }
-
-    public void GotoMainScene()
-    {
-        SceneManager.LoadScene("MainScene");
-    }
-
+    
 }

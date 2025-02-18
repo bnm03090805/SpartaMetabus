@@ -14,11 +14,11 @@ public class Obstacle : MonoBehaviour
 
     public float widthPadding = 4f;
 
-    GameManager gameManager;
+    PlaneGameManager gameManager;
 
     public void Start()
     {
-        gameManager = GameManager.Instance;
+        gameManager = PlaneGameManager.Instance;
     }
 
     public Vector3 SetRandomPlace(Vector3 lastPosition, int obstacleCount)

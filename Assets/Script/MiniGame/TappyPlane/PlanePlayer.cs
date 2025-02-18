@@ -14,11 +14,11 @@ public class PlanePlayer : MonoBehaviour
 
     public bool godMode = false;
 
-    GameManager gameManager = null;
+    PlaneGameManager gameManager = null;
 
     void Start()
     {
-        gameManager = GameManager.Instance;
+        gameManager = PlaneGameManager.Instance;
 
         animator = transform.GetComponentInChildren<Animator>();
         _rigidbody = transform.GetComponent<Rigidbody2D>();

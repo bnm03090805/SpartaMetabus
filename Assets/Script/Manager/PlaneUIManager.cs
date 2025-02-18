@@ -9,6 +9,8 @@ public class PlaneUIManager : MonoBehaviour
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI restartText;
     public TextMeshProUGUI gameExitText;
+    public TextMeshProUGUI gameDescription;
+    public TextMeshProUGUI gameStart;
 
     public void Start()
     {
@@ -27,7 +29,6 @@ public class PlaneUIManager : MonoBehaviour
             Debug.LogError("GameExitText is null");
             return;
         }
-
         restartText.gameObject.SetActive(false);
         gameExitText.gameObject.SetActive(false);
     }
@@ -36,6 +37,15 @@ public class PlaneUIManager : MonoBehaviour
     {
         restartText.gameObject.SetActive(true);
         gameExitText.gameObject.SetActive(true);
+    }
+
+    public void SetStart()
+    {
+        restartText.gameObject.SetActive(false);
+        gameExitText.gameObject.SetActive(false);
+        gameDescription.gameObject.SetActive(false);
+        gameStart.gameObject.SetActive(false);
+        scoreText.gameObject.SetActive(true);
     }
 
     public void UpdateScore(int score)
