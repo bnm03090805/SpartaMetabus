@@ -11,6 +11,7 @@ public class PlaneUIManager : MonoBehaviour
     public TextMeshProUGUI gameExitText;
     public TextMeshProUGUI gameDescription;
     public TextMeshProUGUI gameStart;
+    public TextMeshProUGUI bestScoreText;
 
     public void Start()
     {
@@ -51,5 +52,10 @@ public class PlaneUIManager : MonoBehaviour
     public void UpdateScore(int score)
     {
         scoreText.text = score.ToString();
+    }
+
+    public void UpdateBestScore(int score)
+    {
+        bestScoreText.text = "BestScore : " + score.ToString();
     }
 }

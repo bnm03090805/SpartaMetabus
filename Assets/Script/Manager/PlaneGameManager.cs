@@ -5,6 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class PlaneGameManager : MonoBehaviour
 {
+    int bestScore = 0;
+    public int BestScore { get=>  bestScore;}
+    private const string BestScoreKey = "BestScore";
+
     static PlaneGameManager planeGameManager;
 
     public static PlaneGameManager Instance
@@ -24,11 +28,13 @@ public class PlaneGameManager : MonoBehaviour
     private void Start()
     {
         planeUIManager.UpdateScore(0);
+        bestScore = PlayerPrefs.GetInt(BestScoreKey, 0);
     }
 
     public void GameOver()
     {
         Debug.Log("Game Over");
+        UpdateScore();
         planeUIManager.SetRestart();
     }
 
@@ -48,5 +54,16 @@ public class PlaneGameManager : MonoBehaviour
     {
         Time.timeScale = 1.0F;
         planeUIManager.SetStart();
+    }
+
+    void UpdateScore()
+    {
+        if (currentScore > bestScore)
+        {
+            Debug.Log("최고점수경신");
+            bestScore = currentScore;
+
+            PlayerPrefs.SetInt(BestScoreKey, currentScore);
+        }
     }
 }
