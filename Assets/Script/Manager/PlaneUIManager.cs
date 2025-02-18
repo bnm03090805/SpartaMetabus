@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class PlaneUIManager : MonoBehaviour
 {
@@ -35,8 +36,9 @@ public class PlaneUIManager : MonoBehaviour
         bestScoreText.gameObject.SetActive(false);
     }
 
-    public void SetRestart()
+    public void SetRestart(int score)
     {
+        bestScoreText.text = "BestScore : " + score.ToString();
         restartText.gameObject.SetActive(true);
         gameExitText.gameObject.SetActive(true);
         bestScoreText.gameObject.SetActive(true);

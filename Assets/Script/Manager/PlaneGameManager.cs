@@ -35,7 +35,7 @@ public class PlaneGameManager : MonoBehaviour
     {
         Debug.Log("Game Over");
         UpdateScore();
-        planeUIManager.SetRestart();
+        planeUIManager.SetRestart(bestScore);
     }
 
     public void RestartGame()
