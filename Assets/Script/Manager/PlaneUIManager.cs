@@ -32,12 +32,15 @@ public class PlaneUIManager : MonoBehaviour
         }
         restartText.gameObject.SetActive(false);
         gameExitText.gameObject.SetActive(false);
+        bestScoreText.gameObject.SetActive(false);
     }
 
     public void SetRestart()
     {
         restartText.gameObject.SetActive(true);
         gameExitText.gameObject.SetActive(true);
+        bestScoreText.gameObject.SetActive(true);
+        scoreText.gameObject.SetActive(false);
     }
 
     public void SetStart()
@@ -47,6 +50,7 @@ public class PlaneUIManager : MonoBehaviour
         gameDescription.gameObject.SetActive(false);
         gameStart.gameObject.SetActive(false);
         scoreText.gameObject.SetActive(true);
+        bestScoreText.gameObject.SetActive(false);
     }
 
     public void UpdateScore(int score)

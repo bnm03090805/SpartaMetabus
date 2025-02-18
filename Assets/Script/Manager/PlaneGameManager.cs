@@ -64,6 +64,12 @@ public class PlaneGameManager : MonoBehaviour
             bestScore = currentScore;
 
             PlayerPrefs.SetInt(BestScoreKey, currentScore);
+            planeUIManager.UpdateBestScore(BestScore);
         }
+    }
+
+    private void Update()
+    {
+        Debug.Log(bestScore);
     }
 }
