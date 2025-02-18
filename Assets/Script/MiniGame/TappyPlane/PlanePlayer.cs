@@ -34,31 +34,7 @@ public class PlanePlayer : MonoBehaviour
         }
     }
 
-    void Update()
-    {
-        if (isDead)
-        {
-            if (deathCooldown <= 0)
-            {
-                if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
-                {
-                    // 게임 재시작
-                    gameManager.RestartGame();
-                }
-            }
-            else
-            {
-                deathCooldown -= Time.deltaTime;
-            }
-        }
-        else
-        {
-            if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
-            {
-                isFlap = true;
-            }
-        }
-    }
+ 
 
     public void FixedUpdate()
     {

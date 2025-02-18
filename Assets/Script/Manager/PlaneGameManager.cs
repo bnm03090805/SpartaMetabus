@@ -38,11 +38,6 @@ public class PlaneGameManager : MonoBehaviour
         planeUIManager.SetRestart(bestScore);
     }
 
-    public void RestartGame()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
-
     public void AddScore(int score)
     {
         currentScore += score;

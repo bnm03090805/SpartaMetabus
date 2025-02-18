@@ -18,6 +18,8 @@ public class ButtonScript : MonoBehaviour
 
     public void PlayMiniGame()
     {
+        UIManager.Instance.CloseUI();
+        UIManager.Instance.UIStack.Clear();
         SceneManager.LoadScene("MiniGameScene");
     }
 

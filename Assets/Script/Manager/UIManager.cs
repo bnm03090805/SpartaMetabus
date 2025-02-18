@@ -47,10 +47,13 @@ public class UIManager : MonoBehaviour
 
     public void OpenUI(GameObject newUI)
     {
+        Debug.Log("¿ÀÇÂUIÁøÀÔ");
+        Debug.Log(UIStack.Count);
         if (uiStack.Count > 0)
         {
             uiStack.Peek().SetActive(false);
         }
+        Debug.Log(newUI.name);
         newUI.SetActive(true);
         uiStack.Push(newUI);
     }
@@ -67,6 +70,11 @@ public class UIManager : MonoBehaviour
                 uiStack.Peek().SetActive(true);
             }
         }
+    }
+
+    private void Update()
+    {
+
     }
 
 }
