@@ -14,15 +14,27 @@ public class GameManager : MonoBehaviour
     }
 
     private int currentScore = 0;
+    PlaneUIManager planeUIManager;
 
+    public PlaneUIManager PlaneUIManager
+    {
+        get { return planeUIManager; }
+    }
     private void Awake()
     {
         gameManager = this;
+        planeUIManager = FindObjectOfType<PlaneUIManager>();
+    }
+
+    private void Start()
+    {
+        planeUIManager.UpdateScore(0);
     }
 
     public void GameOver()
     {
         Debug.Log("Game Over");
+        planeUIManager.SetRestart();
     }
 
     public void RestartGame()
@@ -33,7 +45,7 @@ public class GameManager : MonoBehaviour
     public void AddScore(int score)
     {
         currentScore += score;
-
+        planeUIManager.UpdateScore(currentScore);
         Debug.Log("Score: " + currentScore);
     }
 
