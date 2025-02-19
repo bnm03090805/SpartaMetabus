@@ -36,4 +36,11 @@ public class ButtonScript : MonoBehaviour
         UIManager.Instance.CloseUI();
     }
 
+    public void ExitBGMQiuzButton()
+    {
+        SoundManager.instance.ChangeERBGM();
+        SoundManager.instance.PlayBGM();
+        SceneManager.LoadScene("MiniGameSecletScene");
+    }
+
 }

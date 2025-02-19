@@ -27,6 +27,6 @@ public class PlayerController : BaseController
         else
         {
             lookDirection = lookDirection.normalized;
-        }
+        }   
     }
 }

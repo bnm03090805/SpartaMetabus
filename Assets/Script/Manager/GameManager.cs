@@ -1,12 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     static GameManager gameManager;
+    public TextMeshProUGUI talkText;
 
     public static GameManager Instance
     {
@@ -34,6 +36,5 @@ public class GameManager : MonoBehaviour
             SoundManager.instance.StopBGM();
         }
     }
-
     
 }

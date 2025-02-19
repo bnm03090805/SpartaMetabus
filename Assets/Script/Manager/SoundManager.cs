@@ -70,4 +70,9 @@ public class SoundManager : MonoBehaviour
         m_AudioSource.Play();
     }
 
+    public void ChangeERBGM()
+    {
+        m_AudioSource.clip = m_Clip;
+    }
+
 }

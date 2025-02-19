@@ -2297,7 +2297,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1365309512}
         m_TargetAssemblyTypeName: ButtonScript, Assembly-CSharp
-        m_MethodName: GotoMinigameSclcetScene
+        m_MethodName: ExitBGMQiuzButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

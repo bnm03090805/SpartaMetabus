@@ -59,23 +59,7 @@ public class QuizManager : MonoBehaviour
         }
         else
         {
-            UIManager.Instance.OpenUI(wrongUI);
-            Invoke("InvokeCloseUI", 3f);
-            Count--;
-            if (Count == 0)
-            {
-                Number++;
-                UpdateNumber();
-                SoundManager.instance.StopBGM();
-                Count = 3;
-            }
-            else
-            {
-                wrongCount++;
-                UpdateCount();
-            }
-            Debug.Log("틀림");
-
+            WrongEvent();
         }
     }
 
@@ -91,7 +75,7 @@ public class QuizManager : MonoBehaviour
         else
         {
             UIManager.Instance.OpenUI(answerUI);
-            Invoke("InvokeCloseUI", 3f);
+            Invoke("InvokeCloseUI", 1.5f);
             Number++;
             UpdateNumber();
             SoundManager.instance.StopBGM();
@@ -129,6 +113,37 @@ public class QuizManager : MonoBehaviour
         bestCorrectCountText.text = "베스트스코어 : " + BestCorrectCount.ToString();
         UIManager.Instance.OpenUI(resutUI);
 
+    }
+
+    public void WrongEvent()
+    {
+        
+        Count--;
+        if (Count == 0)
+        {
+            wrongCount++;
+            if (Number == SoundManager.instance.BGMList.Length - 1)
+            {
+                Result();
+            }
+            else
+            {
+                Number++;
+                UpdateNumber();
+                SoundManager.instance.StopBGM();
+                Count = 3;
+                UIManager.Instance.OpenUI(wrongUI);
+                Invoke("InvokeCloseUI", 1.5f);
+            }
+
+        }
+        else
+        {
+            UIManager.Instance.OpenUI(wrongUI);
+            Invoke("InvokeCloseUI", 1.5f);
+            UpdateCount();
+        }
+        Debug.Log("틀림");
     }
 
 }
