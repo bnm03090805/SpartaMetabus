@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
     void OnSceneLoaded(Scene scene, LoadSceneMode mode) 
     { 
         UIManager.Instance.UIStack.Clear();
-        if(scene.name == "MiniGameScene")
+        if(scene.name == "FlappyBirdMiniGameScene")
         {
             Time.timeScale = 0f;
         }

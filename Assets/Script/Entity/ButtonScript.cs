@@ -16,9 +16,14 @@ public class ButtonScript : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    public void PlayMiniGame()
+    public void PlayBridMiniGame()
     {
-        SceneManager.LoadScene("MiniGameScene");
+        SceneManager.LoadScene("FlappyBirdMiniGameScene");
+    }
+
+    public void GotoMinigameSclcetScene()
+    {
+        SceneManager.LoadScene("MiniGameSecletScene");
     }
 
 }
