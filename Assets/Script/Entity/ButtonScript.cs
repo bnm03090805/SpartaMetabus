@@ -31,4 +31,9 @@ public class ButtonScript : MonoBehaviour
         SceneManager.LoadScene("BGMQuizScene");
     }
 
+    public void CloseUI()
+    {
+        UIManager.Instance.CloseUI();
+    }
+
 }
