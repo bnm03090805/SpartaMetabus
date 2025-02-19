@@ -16,13 +16,19 @@ public class QuizManager : MonoBehaviour
 {
     public List<QBGM> BGMList = new List<QBGM>();
     [SerializeField] TextMeshProUGUI quizText;
+    [SerializeField] TextMeshProUGUI countText;
     [SerializeField] GameObject answerUI;
     [SerializeField] GameObject wrongUI;
+    [SerializeField] GameObject resutUI;
+    [SerializeField] TextMeshProUGUI corretCountText;
+    [SerializeField] TextMeshProUGUI wrongCountText;
 
     public int Number { get; set; }
     public static QuizManager instance;
 
     public int Count;
+    public int corretCount;
+    public int wrongCount;
 
     private void Awake()
     {
@@ -34,7 +40,10 @@ public class QuizManager : MonoBehaviour
         BGMList.Add(new QBGM { ID = 4, Name = "MaguMaguMainTheme", Answers = new string[] { "마구마구" } });
         Number = 0;
         Count = 3;
+        corretCount = 0;
+        wrongCount = 0;
         UpdateNumber();
+        UpdateCount();
     }
 
     public void AnswerChcek(string answer)
@@ -49,19 +58,27 @@ public class QuizManager : MonoBehaviour
             UIManager.Instance.OpenUI(wrongUI);
             Invoke("InvokeCloseUI", 3f);
             Count--;
-            if (Count == -1)
+            if (Count == 0)
             {
                 Number++;
                 UpdateNumber();
                 SoundManager.instance.StopBGM();
+                Count = 3;
+            }
+            else
+            {
+                wrongCount++;
+                UpdateCount();
             }
             Debug.Log("틀림");
+
         }
     }
 
     public void AnsewrEvent()
     {
         Debug.Log("정답");
+        corretCount++;
         UIManager.Instance.OpenUI(answerUI);
         Invoke("InvokeCloseUI", 3f);
         if(Number == SoundManager.instance.BGMList.Length-1)
@@ -80,11 +97,23 @@ public class QuizManager : MonoBehaviour
     {
         quizText.text = (Number+1).ToString() + "번 문제";
         SoundManager.instance.ChangeBGM(BGMList[Number].ID);
+        Count = 3;
+        UpdateCount();
+    }
+
+    public void UpdateCount() 
+    {
+        countText.text = "남은횟수 : " + Count.ToString();
     }
 
     public void InvokeCloseUI()
     {
         UIManager.Instance.CloseUI();
+    }
+
+    public void Result()
+    {
+
     }
 
 }
