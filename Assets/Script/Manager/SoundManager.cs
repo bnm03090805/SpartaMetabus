@@ -8,6 +8,7 @@ public class SoundManager : MonoBehaviour
 
     private AudioSource m_AudioSource;
     public AudioClip m_Clip;
+    public AudioClip[] BGMList;
 
     private float masterVol;
     private float bgmVol;
@@ -52,6 +53,21 @@ public class SoundManager : MonoBehaviour
     {
         bgmVol = figure;
         m_AudioSource.volume = bgmVol * masterVol;
+    }
+
+    public void StopBGM()
+    {
+        m_AudioSource.Stop();
+    }
+
+    public void ChangeBGM(int num)
+    {
+        m_AudioSource.clip = BGMList[num];
+    }
+
+    public void PlayBGM()
+    {
+        m_AudioSource.Play();
     }
 
 }

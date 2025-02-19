@@ -29,6 +29,10 @@ public class GameManager : MonoBehaviour
         {
             Time.timeScale = 0f;
         }
+        if(scene.name == "BGMQuizScene")
+        {
+            SoundManager.instance.StopBGM();
+        }
     }
 
     
