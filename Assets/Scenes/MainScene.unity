@@ -2480,7 +2480,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 329000c88b7c9854898b428827594e0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 805848167}
+  player: {fileID: 805848167}
+  minCameraBoundary: {x: 0, y: 0}
+  maxCameraBoundary: {x: 0, y: 0}
 --- !u!1 &566458312
 GameObject:
   m_ObjectHideFlags: 0
