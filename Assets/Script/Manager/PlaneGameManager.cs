@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class PlaneGameManager : MonoBehaviour
 {
@@ -38,11 +39,16 @@ public class PlaneGameManager : MonoBehaviour
         bestScore = PlayerPrefs.GetInt(BestScoreKey, 0);
         UIManager.Instance.OpenUI(startMenu);
     }
+    private void Update()
+    {
+        Debug.Log(bestScore);
+    }
 
     public void GameOver()
     {
         Debug.Log("Game Over");
         UpdateScore();
+        bestScoreText.text = "BestScore : " + bestScore.ToString();
         SetRestart(bestScore);
     }
 
