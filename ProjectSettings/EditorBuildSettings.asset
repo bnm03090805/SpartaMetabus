@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MiniGameSecletScene.unity
     guid: 44d195cd0630bdb46bebcb3c46068b70
+  - enabled: 1
+    path: Assets/Scenes/BGMQuizScene.unity
+    guid: 4c466047393709e46af00fecae5b5e56
   m_configObjects: {}

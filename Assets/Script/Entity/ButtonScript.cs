@@ -26,4 +26,9 @@ public class ButtonScript : MonoBehaviour
         SceneManager.LoadScene("MiniGameSecletScene");
     }
 
+    public void PlayQiuz()
+    {
+        SceneManager.LoadScene("BGMQuizScene");
+    }
+
 }

@@ -8,7 +8,6 @@ public class PlanePlayer : MonoBehaviour
     public float flapForce = 6f;
     public float forwardSpeed = 3f;
     public bool isDead = false;
-    float deathCooldown = 0f;
 
     bool isFlap = false;
 
@@ -73,7 +72,6 @@ public class PlanePlayer : MonoBehaviour
 
         animator.SetInteger("IsDie", 1);
         isDead = true;
-        deathCooldown = 1f;
         gameManager.GameOver();
     }
 }
