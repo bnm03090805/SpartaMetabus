@@ -525,7 +525,7 @@ Transform:
   m_GameObject: {fileID: 371476854}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 130.71193, y: 343.88785, z: -0.95824003}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -543,6 +543,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63745b5534a27f8408d1195ef018145f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  quizText: {fileID: 1150210053}
 --- !u!1 &740444295
 GameObject:
   m_ObjectHideFlags: 0
