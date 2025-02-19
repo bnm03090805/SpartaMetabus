@@ -2421,6 +2421,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Clip: {fileID: 8300000, guid: 78761be75ba5606489273d5d17266392, type: 3}
+  BGMList:
+  - {fileID: 8300000, guid: f452dd8186dd1a04a89c4e28559238ed, type: 3}
+  - {fileID: 8300000, guid: e9f5d6de77b039947b0b9bc26ed7314e, type: 3}
+  - {fileID: 8300000, guid: 49068430205552f45a5da5a70570a59a, type: 3}
+  - {fileID: 8300000, guid: aef105efbe49032408c0cb044da5d75e, type: 3}
+  - {fileID: 8300000, guid: c7e1e24284eab344d8f7b3bb0f3ef07b, type: 3}
 --- !u!82 &464342691
 AudioSource:
   m_ObjectHideFlags: 0

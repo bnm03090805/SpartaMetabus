@@ -8,4 +8,9 @@ public class BGMPlay : MonoBehaviour
     {
         SoundManager.instance.PlayBGM();
     }
+
+    public void StopButton()
+    {
+        SoundManager.instance.StopBGM();
+    }
 }

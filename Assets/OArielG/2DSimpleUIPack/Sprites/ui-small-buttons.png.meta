@@ -148,11 +148,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 65
-        y: 242
+        y: 243
         width: 13
         height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.45148468, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -160,6 +160,27 @@ TextureImporter:
       bones: []
       spriteID: 9bd2e06eced1a5d409d6a35fee81ad8b
       internalID: -1647354289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui-small-buttons_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 224
+        width: 16
+        height: 17
+      alignment: 9
+      pivot: {x: 1.9716268, y: -2.1068816}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ae15679371246e4cb9a153aa9837c18
+      internalID: -2052174302
       vertices: []
       indices: 
       edges: []
@@ -177,6 +198,7 @@ TextureImporter:
     nameFileIdTable:
       ui-small-buttons_0: 1321884430
       ui-small-buttons_1: -1647354289
+      ui-small-buttons_2: -2052174302
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
