@@ -1,10 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PlaneGameManager : MonoBehaviour
 {
+    [SerializeField] GameObject startMenu;
+    [SerializeField] GameObject gameOverUI;
+    [SerializeField] GameObject scoreUI;
+    [SerializeField] TextMeshProUGUI scoreText;
+    [SerializeField] TextMeshProUGUI bestScoreText;
+
     int bestScore = 0;
     public int BestScore { get=>  bestScore;}
     private const string BestScoreKey = "BestScore";
@@ -17,38 +24,39 @@ public class PlaneGameManager : MonoBehaviour
     }
 
     private int currentScore = 0;
-    PlaneUIManager planeUIManager;
+    //PlaneUIManager planeUIManager;
 
     private void Awake()
     {
         planeGameManager = this;
-        planeUIManager = FindObjectOfType<PlaneUIManager>();
+        //planeUIManager = FindObjectOfType<PlaneUIManager>();
     }
 
     private void Start()
     {
-        planeUIManager.UpdateScore(0);
+        UpdateScoreUI(0);
         bestScore = PlayerPrefs.GetInt(BestScoreKey, 0);
+        UIManager.Instance.OpenUI(startMenu);
     }
 
     public void GameOver()
     {
         Debug.Log("Game Over");
         UpdateScore();
-        planeUIManager.SetRestart(bestScore);
+        SetRestart(bestScore);
     }
 
     public void AddScore(int score)
     {
         currentScore += score;
-        planeUIManager.UpdateScore(currentScore);
+        UpdateScoreUI(currentScore);
         Debug.Log("Score: " + currentScore);
     }
 
     public void GameStart()
     {
         Time.timeScale = 1.0F;
-        planeUIManager.SetStart();
+        SetStart();
     }
 
     void UpdateScore()
@@ -59,12 +67,29 @@ public class PlaneGameManager : MonoBehaviour
             bestScore = currentScore;
 
             PlayerPrefs.SetInt(BestScoreKey, currentScore);
-            planeUIManager.UpdateBestScore(BestScore);
+            UpdateBestScore(BestScore);
         }
     }
 
-    private void Update()
+    public void UpdateScoreUI(int score)
     {
-        Debug.Log(bestScore);
+        scoreText.text = score.ToString();
+    }
+
+    public void UpdateBestScore(int score)
+    {
+        bestScoreText.text = "BestScore : " + score.ToString();
+    }
+
+    public void SetRestart(int score)
+    {
+        UIManager.Instance.CloseUI();
+        UIManager.Instance.OpenUI(gameOverUI);
+    }
+
+    public void SetStart()
+    {
+        UIManager.Instance.CloseUI();
+        UIManager.Instance.OpenUI(scoreUI);
     }
 }

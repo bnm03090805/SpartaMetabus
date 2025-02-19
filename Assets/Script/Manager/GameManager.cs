@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode) 
     { 
+        UIManager.Instance.UIStack.Clear();
         if(scene.name == "MiniGameScene")
         {
             Time.timeScale = 0f;
