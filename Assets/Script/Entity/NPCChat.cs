@@ -26,7 +26,7 @@ public class NPCChat : MonoBehaviour
     }
     public void ChatEvent(GameObject ChatUI,TextMeshProUGUI text)
     {
-        if (!GameManager.Instance.isDaeSangHyukOn)
+        if (GameManager.Instance.isDaeSangHyukOn == false)
         {
             if (!ChatUI.activeSelf)
             {
