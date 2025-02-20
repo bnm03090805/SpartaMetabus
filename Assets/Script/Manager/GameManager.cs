@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     static GameManager gameManager;
     public TextMeshProUGUI talkText;
     public bool isDaeSangHyukOn = false;
+    public bool isRiding = false;
     public static GameManager Instance;
     private void Awake()
     {
@@ -32,7 +33,6 @@ public class GameManager : MonoBehaviour
     void OnSceneLoaded(Scene scene, LoadSceneMode mode) 
     { 
         UIManager.Instance.UIStack.Clear();
-        Debug.Log(isDaeSangHyukOn);
         if(scene.name == "FlappyBirdMiniGameScene")
         {
             Time.timeScale = 0f;

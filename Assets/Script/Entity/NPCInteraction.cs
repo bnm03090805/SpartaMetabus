@@ -24,7 +24,6 @@ public class NPCInteraction : MonoBehaviour
     {
         if (Input.GetKeyDown("z") && isEnter == true)
         {
-            Debug.Log("Z키입력 감지");
             chat.ChatEvent(ChatUI, text);
         }
     }

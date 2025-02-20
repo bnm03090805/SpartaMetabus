@@ -215,7 +215,7 @@ TextureImporter:
         width: 13
         height: 12
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -223,6 +223,27 @@ TextureImporter:
       bones: []
       spriteID: 1347fd8410edf884bb4562c338681b98
       internalID: -788994808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui-small-buttons_5
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 98
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b7d313fd5ff26c41ac23655ca263216
+      internalID: 312066965
       vertices: []
       indices: 
       edges: []
@@ -243,6 +264,7 @@ TextureImporter:
       ui-small-buttons_2: -2052174302
       ui-small-buttons_3: -1151323724
       ui-small-buttons_4: -788994808
+      ui-small-buttons_5: 312066965
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

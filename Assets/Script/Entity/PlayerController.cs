@@ -16,8 +16,6 @@ public class PlayerController : BaseController
         float vertial = Input.GetAxisRaw("Vertical");
         movementDirection = new Vector2(horizontal, vertial).normalized;
 
-        //Vector2 mousePosition = Input.mousePosition;
-        //Vector2 worldPos = camera.ScreenToWorldPoint(mousePosition);
         lookDirection = this._rigidbody.velocity;
 
         if (lookDirection.magnitude < .9f)

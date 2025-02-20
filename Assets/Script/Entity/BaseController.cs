@@ -5,6 +5,7 @@ public class BaseController : MonoBehaviour
     protected Rigidbody2D _rigidbody;
 
     [SerializeField] private SpriteRenderer characterRenderer;
+    [SerializeField] private SpriteRenderer ridingRenderer;
 
     protected Vector2 movementDirection = Vector2.zero;
     public Vector2 MovementDirection { get { return movementDirection; } }
@@ -29,12 +30,16 @@ public class BaseController : MonoBehaviour
     {
         HandleAction();
         Rotate(lookDirection);
+        if (Input.GetKeyDown("f"))
+        {
+            Riding();
+        }
     }
 
     protected virtual void FixedUpdate()
     {
         Movment(movementDirection);
- 
+
     }
 
     protected virtual void HandleAction()
@@ -44,9 +49,17 @@ public class BaseController : MonoBehaviour
 
     private void Movment(Vector2 direction)
     {
-        direction = direction * 5;
-        _rigidbody.velocity = direction;
-
+        if(GameManager.Instance.isRiding == true)
+        {
+            direction = direction * 10;
+            _rigidbody.velocity = direction;
+        }
+        else
+        {
+            direction = direction * 5;
+            _rigidbody.velocity = direction;
+        }
+        
         animationHandler.Move(direction);
     }
 
@@ -56,9 +69,23 @@ public class BaseController : MonoBehaviour
         bool isLeft = Mathf.Abs(rotZ) > 90f;
 
         characterRenderer.flipX = isLeft;
+        ridingRenderer.flipX = isLeft;
 
-      
     }
 
-   
+    private void Riding()
+    {
+        if (GameManager.Instance.isRiding == false)
+        {
+            ridingRenderer.gameObject.SetActive(true);
+            animationHandler.Riding(true);
+            GameManager.Instance.isRiding = true;
+        }
+        else
+        {
+            ridingRenderer.gameObject.SetActive(false);
+            animationHandler.Riding(false);
+            GameManager.Instance.isRiding = false;
+        }
+    }
 }

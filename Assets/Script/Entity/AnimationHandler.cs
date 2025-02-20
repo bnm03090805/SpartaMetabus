@@ -5,6 +5,7 @@ using UnityEngine;
 public class AnimationHandler : MonoBehaviour
 {
     private static readonly int IsMoving = Animator.StringToHash("IsMove");
+    private static readonly int IsRiding = Animator.StringToHash("IsRiding");
 
     protected Animator animator;
 
@@ -18,4 +19,8 @@ public class AnimationHandler : MonoBehaviour
         animator.SetBool(IsMoving, obj.magnitude > .5f);
     }
 
+    public void Riding(bool isRiding)
+    {
+        animator.SetBool(IsRiding, isRiding);
+    }
 }
