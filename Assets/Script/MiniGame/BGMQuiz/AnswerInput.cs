@@ -28,5 +28,6 @@ public class AnswerInput : MonoBehaviour
         answer = answerInput.text;
         Debug.Log(answer);
         QuizManager.instance.AnswerChcek(answer);
+        answerInput.text = "";
     }
 }
