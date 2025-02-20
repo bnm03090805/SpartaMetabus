@@ -6,6 +6,17 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.IO;
 
+[Serializable]
+public class scoreData
+{
+    public List<int> score;
+
+    public scoreData(List<int> score)
+    {
+        this.score = score;
+    }
+}
+
 public class GameManager : MonoBehaviour
 {
     public TextMeshProUGUI talkText;
@@ -66,6 +77,44 @@ public class GameManager : MonoBehaviour
             rank.Add(score);
         }
 
+        scoreData data = new scoreData(rank);
+
+        SaveSystem.Save(data, "save_001");
     }
     
+}
+
+public static class SaveSystem
+{
+    private static string SavePath => Application.persistentDataPath + "/saves/";
+
+    public static void Save(scoreData data, string SaveFileName)
+    {
+        if (!Directory.Exists(SavePath))
+        {
+            Directory.CreateDirectory(SavePath);
+        }
+
+        string saveJson = JsonUtility.ToJson(data);
+        string saveFilePath = SavePath + SaveFileName + ".json";
+        File.WriteAllText(saveFilePath, saveJson);
+        Debug.Log("세이브성공");
+    }
+
+    public static scoreData Load(string saveFilename)
+    {
+        string saveFilePath = SavePath + saveFilename + ".json";
+
+        if (!File.Exists(saveFilePath)) 
+        {
+            Debug.Log("세이브파일 없음");
+
+            return null;
+        }
+
+        string saveFile = File.ReadAllText(saveFilePath);
+        scoreData data = JsonUtility.FromJson<scoreData>(saveFile);
+
+        return data;
+    }
 }
