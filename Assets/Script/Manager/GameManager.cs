@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.IO;
 
 public class GameManager : MonoBehaviour
 {
@@ -54,6 +55,10 @@ public class GameManager : MonoBehaviour
             if (rank.Exists(x => x <= score))
             {
                 rank.Insert(rank.FindIndex(x => x <= score), score);
+            }
+            else
+            {
+                rank.Add(score);
             }
         }
         else
