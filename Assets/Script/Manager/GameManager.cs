@@ -7,11 +7,14 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    static GameManager gameManager;
     public TextMeshProUGUI talkText;
     public bool isDaeSangHyukOn = false;
     public bool isRiding = false;
     public static GameManager Instance;
+
+    public List<int> rankGame1 = new List<int>();
+    public List<int> rankGame2 = new List<int>();
+
     private void Awake()
     {
         if (Instance == null)
@@ -41,6 +44,23 @@ public class GameManager : MonoBehaviour
         {
             SoundManager.instance.StopBGM();
         }
+    }
+
+    public void LeaderBoard(int score, List<int> rank)
+    {
+        if (rank.Count >= 1)
+        {
+            rank.Sort(new Comparison<int>((n1, n2) => n2.CompareTo(n1)));
+            if (rank.Exists(x => x <= score))
+            {
+                rank.Insert(rank.FindIndex(x => x <= score), score);
+            }
+        }
+        else
+        {
+            rank.Add(score);
+        }
+
     }
     
 }

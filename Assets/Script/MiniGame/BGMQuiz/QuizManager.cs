@@ -102,6 +102,11 @@ public class QuizManager : MonoBehaviour
 
     public void Result()
     {
+        if (corretCount != 0)
+        {
+            GameManager.Instance.LeaderBoard(corretCount, GameManager.Instance.rankGame2);
+        }
+
         if (BestCorrectCount < corretCount)
         {
             Debug.Log("최고점수갱신");
@@ -117,7 +122,6 @@ public class QuizManager : MonoBehaviour
 
     public void WrongEvent()
     {
-        
         Count--;
         if (Count == 0)
         {

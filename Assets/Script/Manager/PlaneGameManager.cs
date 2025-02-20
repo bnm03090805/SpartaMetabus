@@ -47,6 +47,10 @@ public class PlaneGameManager : MonoBehaviour
     public void GameOver()
     {
         Debug.Log("Game Over");
+        if (currentScore != 0)
+        {
+            GameManager.Instance.LeaderBoard(currentScore, GameManager.Instance.rankGame1);
+        }
         UpdateScore();
         bestScoreText.text = "BestScore : " + bestScore.ToString();
         SetRestart(bestScore);
