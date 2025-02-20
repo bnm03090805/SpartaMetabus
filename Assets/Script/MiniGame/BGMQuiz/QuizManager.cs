@@ -105,6 +105,8 @@ public class QuizManager : MonoBehaviour
         if (corretCount != 0)
         {
             GameManager.Instance.LeaderBoard(corretCount, GameManager.Instance.rankGame2);
+            scoreData data = new scoreData(GameManager.Instance.rankGame2);
+            SaveSystem.Save(data, "save_002");
         }
 
         if (BestCorrectCount < corretCount)

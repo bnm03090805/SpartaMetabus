@@ -17,6 +17,18 @@ public class LeaderBoard : MonoBehaviour
 
     public void LeaderBoardWrite()
     {
+        scoreData loadData1 = SaveSystem.Load("save_001");
+        scoreData loadData2 = SaveSystem.Load("save_002");
+
+        if(loadData1!= null)
+        {
+            GameManager.Instance.rankGame1 = loadData1.score;
+        }
+        if(loadData2!= null)
+        {
+            GameManager.Instance.rankGame2 = loadData2.score;
+        }
+        
         if (GameManager.Instance.rankGame1.Count>=1)
         {
             for (int i = 0; i <= rank1.Count- 1 && i <= GameManager.Instance.rankGame1.Count-1; i++)

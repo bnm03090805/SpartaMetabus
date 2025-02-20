@@ -50,6 +50,9 @@ public class PlaneGameManager : MonoBehaviour
         if (currentScore != 0)
         {
             GameManager.Instance.LeaderBoard(currentScore, GameManager.Instance.rankGame1);
+            scoreData data = new scoreData(GameManager.Instance.rankGame1);
+            SaveSystem.Save(data, "save_001");
+
         }
         UpdateScore();
         bestScoreText.text = "BestScore : " + bestScore.ToString();

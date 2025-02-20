@@ -77,9 +77,7 @@ public class GameManager : MonoBehaviour
             rank.Add(score);
         }
 
-        scoreData data = new scoreData(rank);
-
-        SaveSystem.Save(data, "save_001");
+        
     }
     
 }
