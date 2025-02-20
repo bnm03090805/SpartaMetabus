@@ -7,7 +7,9 @@ public class NPCChat : MonoBehaviour
 {
     private int step;
     public string[] strings;
-    bool inputKey = false;
+    public string[] strings2;
+    public bool inputKey = false;
+    
 
     private void Update()
     {
@@ -24,24 +26,55 @@ public class NPCChat : MonoBehaviour
     }
     public void ChatEvent(GameObject ChatUI,TextMeshProUGUI text)
     {
-        if (!ChatUI.activeSelf)
+        if (!GameManager.Instance.isDaeSangHyukOn)
         {
-            step = 0;
-            UIManager.Instance.OpenUI(ChatUI);
-            text.text = strings[step];
+            if (!ChatUI.activeSelf)
+            {
+                step = 0;
+                UIManager.Instance.OpenUI(ChatUI);
+                text.text = strings[step];
+            }
+            else
+            {
+                text.text = strings[step];
+
+                if (step == strings.Length - 1)
+                {
+                    SoundManager.instance.StopBGM();
+                    SoundManager.instance.ChangeLNDBGM();
+                    SoundManager.instance.PlayBGM();
+                    UIManager.Instance.CloseUI();
+                    step = 0;
+                    GameManager.Instance.isDaeSangHyukOn = true;
+                    return;
+                }
+            }
         }
         else
         {
-            text.text = strings[step];
-                
-
-            if (step == strings.Length-1)
+            if (!ChatUI.activeSelf)
             {
-                UIManager.Instance.CloseUI();
                 step = 0;
-                return;
+                UIManager.Instance.OpenUI(ChatUI);
+                text.text = strings2[step];
+            }
+            else
+            {
+                text.text = strings2[step];
+
+                if (step == strings2.Length - 1)
+                {
+                    SoundManager.instance.StopBGM();
+                    SoundManager.instance.ChangeERBGM();
+                    SoundManager.instance.PlayBGM();
+                    UIManager.Instance.CloseUI();
+                    step = 0;
+                    GameManager.Instance.isDaeSangHyukOn = false;
+                    return;
+                }
             }
         }
+        
         
     }
 }

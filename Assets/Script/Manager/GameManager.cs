@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
 {
     static GameManager gameManager;
     public TextMeshProUGUI talkText;
-
+    public bool isDaeSangHyukOn = false;
     public static GameManager Instance
     {
         get { return gameManager; }

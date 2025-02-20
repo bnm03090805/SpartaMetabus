@@ -9,6 +9,7 @@ public class SoundManager : MonoBehaviour
     private AudioSource m_AudioSource;
     public AudioClip m_Clip;
     public AudioClip[] BGMList;
+    public AudioClip DaeSangHyuk;
 
     private float masterVol;
     private float bgmVol;
@@ -73,6 +74,17 @@ public class SoundManager : MonoBehaviour
     public void ChangeERBGM()
     {
         m_AudioSource.clip = m_Clip;
+    }
+
+    public void ChangeLNDBGM()
+    {
+        if (m_AudioSource.clip.name != DaeSangHyuk.name)
+        {
+            m_AudioSource.clip = DaeSangHyuk;
+            m_AudioSource.time = 60f;
+        }
+        else
+            return;
     }
 
 }

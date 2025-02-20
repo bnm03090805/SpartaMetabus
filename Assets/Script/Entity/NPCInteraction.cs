@@ -15,6 +15,8 @@ public class NPCInteraction : MonoBehaviour
     private void Start()
     {
         interactKey = GameObject.Find("NpcCanvas").transform.GetChild(0).gameObject;
+        ChatUI = GameObject.Find("Canvas").transform.GetChild(1).gameObject;
+        text = GameObject.Find("Canvas").transform.GetChild(1).GetComponentInChildren<TextMeshProUGUI>();
         chat = GetComponent<NPCChat>();
     }
 

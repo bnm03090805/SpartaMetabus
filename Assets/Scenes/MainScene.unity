@@ -2567,7 +2567,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 8, y: 1, z: 1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1794584333}
@@ -2604,9 +2604,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   strings:
-  - "1\uBC88"
-  - "2\uBC88"
+  - "\uC820\uC7A5 \uB610 \uB300\uC0C1\uD601\uC774\uC57C"
+  - "\uB098\uB294 \uB610 \uB300\uC0C1\uD601\uC744 \uBCF4\uACE0 \uB9D0\uC558\uC5B4"
+  - "\uC774\uC81C \uB098\uB294 \uC22D\uBC30\uD574\uC57C\uB9CC \uD574"
   - "\uB05D"
+  strings2: []
+  inputKey: 0
 --- !u!1 &339716682
 GameObject:
   m_ObjectHideFlags: 0
@@ -2735,6 +2738,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 49068430205552f45a5da5a70570a59a, type: 3}
   - {fileID: 8300000, guid: aef105efbe49032408c0cb044da5d75e, type: 3}
   - {fileID: 8300000, guid: c7e1e24284eab344d8f7b3bb0f3ef07b, type: 3}
+  DaeSangHyuk: {fileID: 8300000, guid: 20f99256733dbe248b2daf05c2497163, type: 3}
 --- !u!82 &464342691
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6403,7 +6407,7 @@ RectTransform:
   m_GameObject: {fileID: 1843092547}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 312282938}
