@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class LeaderBoardPopupUI : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private GameObject leaderBoardUI;
 
-    // Update is called once per frame
-    void Update()
+    public void OpenLeaderBoardUI()
     {
-        
+        UIManager.Instance.OpenUI(leaderBoardUI);
     }
 }
