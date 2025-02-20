@@ -36,5 +36,10 @@ public class GameManager : MonoBehaviour
             SoundManager.instance.StopBGM();
         }
     }
+
+    public void NPCTalkEvent()
+    {
+
+    }
     
 }
