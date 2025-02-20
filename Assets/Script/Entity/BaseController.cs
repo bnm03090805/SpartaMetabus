@@ -23,7 +23,10 @@ public class BaseController : MonoBehaviour
 
     protected virtual void Start()
     {
-
+        if (GameManager.Instance.isRiding == true)
+        {
+            OnRide();
+        }
     }
 
     protected virtual void Update()
@@ -77,15 +80,24 @@ public class BaseController : MonoBehaviour
     {
         if (GameManager.Instance.isRiding == false)
         {
-            ridingRenderer.gameObject.SetActive(true);
-            animationHandler.Riding(true);
-            GameManager.Instance.isRiding = true;
+            OnRide();
         }
         else
         {
-            ridingRenderer.gameObject.SetActive(false);
-            animationHandler.Riding(false);
-            GameManager.Instance.isRiding = false;
+            offRide();
         }
+    }
+
+    private void OnRide()
+    {
+        ridingRenderer.gameObject.SetActive(true);
+        animationHandler.Riding(true);
+        GameManager.Instance.isRiding = true;
+    }
+    private void offRide()
+    {
+        ridingRenderer.gameObject.SetActive(false);
+        animationHandler.Riding(false);
+        GameManager.Instance.isRiding = false;
     }
 }
